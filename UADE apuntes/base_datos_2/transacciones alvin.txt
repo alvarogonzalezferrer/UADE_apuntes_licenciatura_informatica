@@ -1,0 +1,395 @@
+Transacciones SQL
+-----------------
+
+Por Krono - In loving memory of my father
+
+Def : es una unidad logica de trabajo Es atomica, no se pueden separar sin perder la regla de negocio.
+
+
+Debe estar formada por un conjunto de instrucciones DML validas.
+
+La idea es que cuando yo trabajo con transacciones, puedo asegurar que todas las operaciones se completaron correctamente, o 
+que no se completo ninguna (y no afecto nada).
+
+Necesito una herramienta que simule todo esto ; se usa el "procesador de transacciones", tambien llamado "monitor de 
+transacciones" (del DBMS).
+
+Todos los DBMS con capacidad de manejar transacciones cuentan con archivos de log o bitacora, no existe el concepto de 
+transaccion sin alguno de estos 2 elementos.
+
+La idea del concepto de manejo de transaccion es tomar el conjunto de operaciones (ej: INSERT & UPDATE) como una unidad, y 
+que se ejecute completo.
+
+O sea, si los datos estan en estado consistente, luego de ejecutar las instrucciones, si salio OK, debe quedar nuevamente en 
+un estado consistente, y si fallo, debe quedar en el estado consistente en el que estaba, sin alterar nada.
+
+Un estado CONSISTENTE es cuando la base de datos cumple con todas las restricciones de esa base de datos.
+
+Precisamos para trabajar con transacciones:
+
+- conjunto de caracteres que nos permita identificar el inicio y fin de una transaccion
+	
+	declaracion explicita de una transaccion, lo uso para cosas que modifican la base de datos (INSERT,UPDATE,DELETE,etc)
+	para el SELECT es al dope
+	BEGIN TRANSACTION
+		-- nunca poner cosas que requieran intervencion del usuario aqui!
+		-- no poner control del dispositivo aqu (ej: impresora, puerto de comunicaciones)
+		-- tratar de que sea conciso, o atomico, dirigida al mismo tema
+	END TRANSACTION
+
+	ver SET TRANSACTION ON en el help de SQL
+
+- valor de control de la ejecucion (un valor que indique si termino OK o no)
+	todo DBMS tiene una variable que indica cual fue el resultado de la ultima instruccion
+	esa variable es "@@error" (indica el DB_STATUS) , si es cero, todo OK, si no es <> cero
+
+
+- acciones a seguir
+	si salio todo OK; hacer COMMIT
+	si no fue satisfactorio, hacer ROLLBACK
+
+
+ejemplo global
+-- EJEMPLO
+BEGIN TRANSACTION
+	-- sentencias INSERT, UPDATE, DELETE, etc
+END TRANSACTION
+
+IF (@@error = 0) THEN
+BEGIN
+	COMMIT
+END
+ELSE
+BEGIN
+	ROLLBACK
+END
+-- FIN EJEMPLO
+
+Cada transaccion que uno realize y cometa (COMMIT) genera un PUNTO DE SINCRONISMO. El ROLLBACK vuelve hasta este punto.
+Es por eso que hecho el COMMIT, el ROLLBACK ya no me sirve para "volver". <- IMPORTANTE!!!
+Si la transaccion termino OK, todos los recursos que habia usado quedan liberados, y listo para que otra transaccion los 
+acceda.
+Ademas, pierde el posicionamiento (ver cursores). Si necesito la misma posicion, debo reposicionar el cursor.
+Los cursores son sentencias SQL que son tratadas como una lista de registros.
+
+Propiedades de las transacciones
+--------------------------------
+
+Ver propiedades ACAD (ACID en ingles)
+A : atomicas (o se ejecuta toda o nada, no se ejecuta parcialmente)
+C : consistentes (pasan la base de datos de un estado consistente a otro o al mismo estado consistente)
+A : aislacion (cada transaccion esta aislada de las demas, se pueden plantear diferentes niveles de aislacion en la practica)
+D : durabilidad (cada vez que se compromete COMMIT, la unica forma de deshacerlos es ejecutar otra operacion distinta, una 
+vez hecho el COMMIT, el ROLLBACK ya no sirve para deshacerlo)
+
+Funcionamiento de el ROLLBACK
+-----------------------------
+
+Se hace mediante el archivo de LOG, los procesadoers de transacciones para funcinar NECESITAN archivos de log, en estos 
+archivos guarda informacion para poder volver atras las transacciones.
+Si por alguna razon, el DBMS pierde un archivo de log, lo mas probable es que se detenga.
+Si pierde todos dos archivos de log, se cae y palmo. 
+Lo mejor es espejar los archivos de log en diferentes dispositivos para evitar la perdida.
+
+Hay dos tipos de LOG tradicionales:
+- Anterior : es mas facil hacer rollback con este tipo para el DBMS
+	imagen de los registros involucrados antes de la transaccion + datos de esa modificacion
+- Posterior : este log es mejor para recuperar la base de datos ante una falla (estadisticamente el rollback se usa poco, es 
+mas popular este tipo de log)
+	imagen de los registros despues de la transaccion (actualizada) + datos que se usaron para modificarlo
+
+Estos archivos de LOG crecen tanto o mas que la base de datos.
+
+En la actualidad, ya no se usa estos tipos de log, se usa lo sig:
+- imagen anterior + imagen posterior
+es mucho mas eficiente del punto de vista de performance, pero desperdicia horriblemente espacio en disco.
+
+Puntos de chequeo CHECKPOINT
+----------------------------
+Cada vez que un DBMS emite un punto de chequeo, para todo, y graba todo a disco. Luego continua.
+Consume muchos recursos hacer esto.
+Se puede determinar que cada [n] transacciones se haga un checkpoint. Se puede hacer por tiempo tambien.
+Toda transaccion antes del CHECKPOINT esta fisicamente grabada en la base de datos.
+Para el DBMS es mas importante el archivo de LOG que los archivos de datos, por eso, graba primero el log, y luego los datos.
+El DBMS puede recuperar todo desde el log, pero no desde los datos, por eso prioriza el log.
+
+
+Lista de REHACER
+----------------
+
+La lista de rehacer : el DBMS pone en una lista Transacion + Imagen a rehacer.
+Cuando encuentra un checkpoint, borra la lista, y continua.
+Se fija que cosas restaure y cuales no tambien.
+Es muy raro llegar al mismo estado en el que estaba la base de datos, pq a veces quedan transacciones que nunca llegaron a 
+grabarse a disco en el momento de la falla especifica.
+
+
+
+Tip para instalar bases de datos
+--------------------------------
+
+-- El disco mas rapido para los indices
+-- El disco mas seguro para los logs
+-- Cualquier disco para los datos
+
+
+Concurrencia
+------------
+tipos : 
+-- bloqueo exclusivo : solo 1 a la vez [ no se usa mas ]
+-- lectura concurrente (todos pueden leer) y grabacion unica (si alguien graba, mientras graba, nadie mas graba ni lee)
+
+DeadLock [repasar]
+
+Tipos de bloqueo:
+	Serializable [mas estricto], aisla las transacciones, default
+	Lectura repetible 
+	Lectura comprometida
+	Lectura no comprometida [menos estricto]
+
+
+Seriabilidad de las transacciones
+---------------------------------
+
+Serie de transacciones ejecutadas una detras de la otra en algun orden.
+El orden debe cambiarpara que sean serializables, esto habla de la aislacion de las transacciones.
+
+-----------------------------------------------------------------------------------
+------------------- CHOREADO DEL HELP DE SQL , VER MAS EN EL MSDN -----------------
+-----------------------------------------------------------------------------------
+
+Controlar las transacciones
+Las aplicaciones controlan las transacciones principalmente al especificar cuándo se inicia y finaliza una transacción. Esto 
+se puede especificar mediante la utilización de instrucciones de Transact-SQL o funciones de la API de base de datos. El 
+sistema también debe ser capaz de controlar correctamente los errores que terminan una transacción antes de que se concluya.
+
+Las transacciones se administran en las conexiones. Cuando se inicia una transacción en una conexión, todas las instrucciones 
+de Transact-SQL ejecutadas en esa conexión forman parte de la transacción hasta que la transacción finaliza.
+
+Iniciar transacciones
+Puede iniciar transacciones en Microsoft® SQL Server™ como transacciones explícitas, de confirmación automática o implícitas.
+
+Transacciones explícitas
+
+Inicie una transacción de forma explícita mediante la instrucción BEGIN TRANSACTION.
+
+Transacciones de confirmación automática
+
+Éste es el modo predeterminado de SQL Server. Cada instrucción individual de Transact-SQL se confirma cuando termina. No 
+tiene que especificar instrucciones para controlar las transacciones.
+
+Transacciones implícitas
+
+Establezca el modo de transacción implícita a través de una función de la API o la instrucción SET IMPLICIT_TRANSACTIONS ON 
+de Transact-SQL. La siguiente instrucción inicia automáticamente una nueva transacción. Cuando se concluye la transacción, la 
+instrucción de Transact-SQL siguiente inicia una nueva transacción.
+
+Los modos de conexión se administran en las conexiones. Si una conexión cambia de un modo de transacción a otro, no tiene 
+efecto sobre los modos de transacción de otras conexiones.
+
+Finalizar transacciones
+Puede finalizar las transacciones con la instrucción COMMIT o la instrucción ROLLBACK.
+
+COMMIT
+
+Si una transacción es correcta, confírmela. La instrucción COMMIT garantiza que todas las modificaciones de la transacción se 
+convierten en una parte permanente de la base de datos. La instrucción COMMIT también libera recursos que utiliza la 
+transacción como, por ejemplo, los bloqueos.
+
+ROLLBACK
+
+Si se produce un error en una transacción o el usuario decide cancelar la transacción, deshaga la transacción. La instrucción 
+ROLLBACK deshace todas las modificaciones realizadas en la transacción al devolver los datos al estado en que estaban al 
+inicio de la transacción. La instrucción ROLLBACK también libera los recursos que mantiene la transacción.
+
+Especificar los límites de la transacción
+Puede identificar si las transacciones de SQL Server se inician y finalizan con instrucciones de Transact-SQL o con funciones 
+y métodos de la API.
+
+Instrucciones de Transact-SQL
+
+Utilice las instrucciones BEGIN TRANSACTION, COMMIT TRANSACTION, COMMIT WORK, ROLLBACK TRANSACTION, ROLLBACK WORK y SET 
+IMPLICIT_TRANSACTIONS para delinear transacciones. Se utilizan principalmente en aplicaciones de DB-Library y en secuencias 
+de comandos de Transact-SQL, como las secuencias de comandos que se ejecutan con el programa del símbolo del sistema osql.
+
+Funciones y métodos de la API
+
+Las API de bases de datos, como ODBC, OLE DB y ADO contienen funciones o métodos utilizados para delinear transacciones. 
+Éstos son los principales mecanismos utilizados para controlar transacciones en una aplicación de SQL Server.
+
+Cada transacción se debe administrar solamente mediante uno de estos métodos. La utilización de ambos métodos en la misma 
+transacción puede conducir a resultados no definidos. Por ejemplo, no debe iniciar una transacción con las funciones de la 
+API de ODBC y después utilizar la instrucción COMMIT de Transact-SQL para concluir la transacción. De esta forma, no 
+notificaría al controlador ODBC de SQL Server que se confirmó la transacción. En este caso, utilice la función SQLEndTran de 
+ODBC para finalizar la transacción.
+
+Errores al procesar la transacción
+Si un error grave impide la terminación correcta de una transacción, SQL Server deshace automáticamente la transacción y 
+libera todos los recursos que mantiene la transacción. Si se interrumpe la conexión de red del cliente con SQL Server, las 
+transacciones pendientes de la conexión se deshacen cuando la red notifica a SQL Server la interrupción. Si la aplicación 
+cliente falla o si el equipo cliente se bloquea o se reinicia, también se interrumpe la conexión y SQL Server deshace las 
+conexiones pendientes cuando la red le notifica la interrupción. Si el cliente cierra la aplicación, se deshacen las 
+transacciones pendientes.
+
+Si se produce el error de una instrucción en tiempo de ejecución (como una infracción de restricciones) en un archivo por 
+lotes, el comportamiento predeterminado de SQL Server consiste en deshacer solamente la instrucción que generó el error. 
+Puede modificar este comportamiento con la instrucción SET XACT_ABORT. Una vez ejecutada la instrucción SET XACT_ABORT ON, 
+los errores de instrucciones en tiempo de ejecución hacen que se deshaga automáticamente la transacción actual. Los errores 
+de compilación, como por ejemplo los de sintaxis, no se ven afectados por SET XACT_ABORT.
+
+Es responsabilidad del programador codificar la aplicación para especificar la acción correcta (COMMIT o ROLLBACK) si se 
+produce un error de compilación o en tiempo de ejecución.
+-------------------------------------------------------------------------------------------------
+BEGIN TRANSACTION
+Marca el punto de inicio de una transacción local explícita. La instrucción BEGIN TRANSACTION incrementa @@TRANCOUNT en 1.
+
+Sintaxis
+BEGIN TRAN [ SACTION ] [ transaction_name | @tran_name_variable
+    [ WITH MARK [ 'description' ] ] ] 
+
+Argumentos
+transaction_name
+
+Es el nombre asignado a la transacción. El argumento transaction_name debe cumplir las reglas de los identificadores, pero 
+los identificadores de más de 32 caracteres no se admiten. Utilice nombres de transacciones solamente en la pareja más 
+externa de instrucciones BEGIN...COMMIT o BEGIN...ROLLBACK anidadas.
+
+@tran_name_variable
+
+Se trata del nombre de una variable definida por el usuario que contiene un nombre de transacción válido. La variable se debe 
+declarar con un tipo de datos char, varchar, nchar o nvarchar.
+
+WITH MARK ['description']
+
+Especifica que la transacción está marcada en el registro. description es una cadena que describe la marca.
+
+Si utiliza WITH MARK, debe especificar un nombre de transacción. WITH MARK permite restaurar un registro de transacciones 
+hasta una marca con nombre.
+
+-------------------------------------------------------------------------------------------------
+ROLLBACK TRANSACTION
+Deshace una transacción explícita o implícita hasta el inicio de la transacción o hasta un punto de almacenamiento dentro de 
+una transacción.
+
+Sintaxis
+ROLLBACK [ TRAN [ SACTION ] 
+    [ transaction_name | @tran_name_variable 
+    | savepoint_name | @savepoint_variable ] ] 
+
+Argumentos
+transaction_name
+
+Es el nombre asignado a la transacción en BEGIN TRANSACTION. Se debe ajustar a las reglas para los identificadores, pero sólo 
+se utilizan los primeros 32 caracteres del nombre de la transacción. Cuando se trata de transacciones anidadas, 
+transaction_name debe ser el nombre de la instrucción BEGIN TRANSACTION más externa.
+
+@tran_name_variable
+
+Se trata del nombre de una variable definida por el usuario que contiene un nombre de transacción válido. La variable se debe 
+declarar con un tipo de datos char, varchar, nchar o nvarchar.
+
+savepoint_name
+
+Es el punto de almacenamiento de una instrucción SAVE TRANSACTION y se debe ajustar a las reglas para los identificadores. 
+Utilice savepoint_name cuando una operación condicional para deshacer sólo deba afectar a parte de la transacción.
+
+@savepoint_variable
+
+Es el nombre de una variable definida por el usuario que contiene un nombre de punto de almacenamiento válido. La variable se 
+debe declarar con un tipo de datos char, varchar, nchar o nvarchar.
+
+-------------------------------------------------------------------------------------------------
+COMMIT TRANSACTION
+Marca el final de una transacción correcta, implícita o definida por el usuario. Si @@TRANCOUNT es 1, COMMIT TRANSACTION hace 
+que todas las modificaciones efectuadas sobre los datos desde el inicio de la transacción sean parte permanente de la base de 
+datos, libera los recursos mantenidos por la conexión y reduce @@TRANCOUNT a 0. Si @@TRANCOUNT es mayor que 1, COMMIT 
+TRANSACTION sólo reduce @@TRANCOUNT en 1.
+
+Sintaxis
+COMMIT [ TRAN [ SACTION ] [ transaction_name | @tran_name_variable ] ]
+
+Argumentos
+transaction_name
+
+Microsoft® SQL Server™ lo omite. transaction_name especifica un nombre de transacción asignado por una previa instrucción 
+BEGIN TRANSACTION. transaction_name tiene que cumplir las reglas de definición de identificadores, pero sólo se utilizan sus 
+32 primeros caracteres. transaction_name se puede utilizar como ayuda al programador, indicándole con qué instrucción BEGIN 
+TRANSACTION anidada está asociada la instrucción COMMIT TRANSACTION.
+
+@tran_name_variable
+
+Se trata del nombre de una variable definida por el usuario que contiene un nombre de transacción válido. La variable se debe 
+declarar con un tipo de datos char, varchar, nchar o nvarchar.
+
+-------------------------------------------------------------------------------------------------
+@@ERROR
+Devuelve el número de error de la última instrucción Transact-SQL ejecutada.
+
+Sintaxis
+@@ERROR
+
+Tipos devueltos
+integer 
+
+Observaciones
+Cuando Microsoft® SQL Server™ completa con éxito la ejecución de una instrucción Transact-SQL, en @@ERROR se establece el 
+valor 0. Si se produce un error, se devuelve un mensaje de error. @@ERROR devuelve el número del mensaje de error, hasta que 
+se ejecute otra instrucción Transact-SQL. Puede ver el texto asociado a un número de error @@ERROR en la tabla de sistema 
+sysmessages.
+
+Al restablecerse @@ERROR con cada instrucción ejecutada, debe comprobarlo inmediatamente después de la instrucción que desea 
+validar o guardarlo en una variable local para examinarlo posteriormente.
+
+Ejemplos
+
+C. Utilizar @@ERROR para comprobar el éxito de varias instrucciones
+Este ejemplo depende de la ejecución con éxito de las instrucciones INSERT y DELETE. Se establece el valor de @@ERROR en 
+variables locales después de ambas instrucciones y se utilizan las variables en una rutina de tratamiento de errores común 
+para la operación.
+
+USE pubs
+GO
+DECLARE @del_error int, @ins_error int
+-- Start a transaction.
+BEGIN TRAN
+
+-- Execute the DELETE statement.
+DELETE authors
+WHERE au_id = '409-56-7088'
+
+-- Set a variable to the error value for 
+-- the DELETE statement.
+SELECT @del_error = @@ERROR
+
+-- Execute the INSERT statement.
+INSERT authors
+   VALUES('409-56-7008', 'Bennet', 'Abraham', '415 658-9932',
+   '6223 Bateman St.', 'Berkeley', 'CA', '94705', 1)
+-- Set a variable to the error value for 
+-- the INSERT statement.
+SELECT @ins_error = @@ERROR
+
+-- Test the error values.
+IF @del_error = 0 AND @ins_error = 0
+BEGIN
+   -- Success. Commit the transaction.
+   PRINT "The author information has been replaced"    
+   COMMIT TRAN
+END
+ELSE
+BEGIN
+   -- An error occurred. Indicate which operation(s) failed
+   -- and roll back the transaction.
+   IF @del_error <> 0 
+      PRINT "An error occurred during execution of the DELETE 
+      statement." 
+
+   IF @ins_error <> 0
+      PRINT "An error occurred during execution of the INSERT 
+      statement." 
+
+   ROLLBACK TRAN
+END
+GO
+
+-------------------------------------------------------------------------------------------------

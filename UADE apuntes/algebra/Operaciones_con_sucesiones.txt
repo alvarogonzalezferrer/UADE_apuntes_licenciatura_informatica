@@ -1,0 +1,74 @@
+Operaciones con sucesiones
+
+Como las sucesiones son conjuntos ordenados de números, es posible hacer 
+operaciones algebraicas entre dos o más sucesiones. 
+Suma  
+El límite de la suma algebraica de dos sucesiones convergentes es la suma 
+algebraica de sus límites. 
+Si las sucesiones son divergentes la suma también es divergente y por lo tanto 
+su límite es infinito. 
+Producto 
+El límite del producto de dos sucesiones convergentes es el producto de sus 
+límites. 
+El límite del producto de una sucesión convergente por un número es igual al 
+producto del limite de la sucesión por el número. 
+El límite del producto de una sucesión divergente por un número positivo, sigue 
+siendo divergente y por lo tanto su límite es infinito (más o infinito o menos 
+infinito, según lo sea la sucesión original). 
+El límite del producto de una sucesión divergente por un número negativo, sigue 
+siendo divergente y por lo tanto su límite es infinito (con el signo cambiado a 
+la sucesión original). 
+El producto de los términos de una sucesión divergente por otra acotada 
+inferiormente y que no tienda a cero, es otra sucesión divergente. 
+El producto de los términos de una sucesión divergente por otra infinitésima, 
+produce otra sucesión que puede ser, divergente o convergente u oscilante o 
+indeterminada. 
+Cociente 
+Si dividendo y divisor son sucesiones infinitésimas, la sucesión cociente es una 
+indeterminación de la forma 0/0. 
+Si el dividendo es un infinitésimo y el divisor una sucesión convergente, la 
+sucesión cociente es un infinitésimo. 
+Si el dividendo es un infinitésimo y el divisor una sucesión divergente, la 
+sucesión cociente es un infinitésimo. 
+Si el dividendo es una sucesión convergente y el divisor una sucesión 
+infinitésima, la sucesión cociente es divergente. 
+Si dividendo y divisor son convergentes, la sucesión cociente es divergente de 
+límite, el cociente de los límites de las sucesiones originales. 
+Si el dividendo es una sucesión convergente y el divisor una sucesión 
+divergente, la sucesión cociente es una sucesión infinitésima. 
+Si el dividendo es una sucesión divergente y el divisor una sucesión 
+infinitésima, la sucesión cociente es divergente. 
+Si el dividendo es una sucesión divergente y el divisor una sucesión 
+convergente, la sucesión cociente es divergente. 
+Si dividendo y divisor son ambas divergentes, la sucesión cociente es una 
+indeterminación de la forma infinito/infinito. 
+Logaritmos 
+Si la sucesión es infinitésima (de términos positivos, obviamente) y la base del 
+logaritmo está comprendida entre 0 y 1, se obtiene una sucesión divergente de 
+límite infinito. 
+Si la sucesión es infinitésima (de términos positivos, obviamente) y la base del 
+logaritmo es mayor que 1, se obtiene una sucesión divergente de límite menos 
+infinito. 
+Si la sucesión es convergente, de límite A, la sucesión resultante es 
+convergente de límite el logaritmo de A. 
+Si la sucesión es divergente, de límite infinito y la base del logaritmo es 
+mayor que 1,  la sucesión resultante es divergente de límite infinito.  
+Si la sucesión es divergente, de límite infinito y la base del logaritmo está 
+comprendido entre 0 y 1,  la sucesión resultante es divergente de límite menos 
+infinito.  
+Formas indeterminadas 
+Como resultado de las operaciones anteriores se pueden producir casos en los que 
+no se pueda calcular el valor y por eso se llaman indeterminaciones. 
+Las indeterminaciones son:
+¥ - ¥  
+¥ / ¥  
+0 / 0
+0 * ¥
+00
+¥ 0
+1¥
+Es evidente que el símbolo ¥ representa un número muy grande pero ya no es tan 
+evidente que los números cero y uno que aparecen en estas expresiones no son 
+exactamente estos números si no números infinitamente próximos a ellos. Por eso, 
+un número infinitamente próximo a 1 elevado a un número infinitamente grande es 
+una indeterminación.

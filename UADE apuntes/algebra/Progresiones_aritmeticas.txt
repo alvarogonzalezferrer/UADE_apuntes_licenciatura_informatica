@@ -1,0 +1,28 @@
+Progresiones aritméticas
+Progresión aritmética
+Es una sucesión de números en la que cada término, excepto el primero, se 
+obtiene sumando al anterior otro número fijo. Este número fijo se llama 
+diferencia.
+Es fácil demostrar que el término general es:
+an = a1 + d(n-1)
+y la suma de n términos es:
+S = (a1 + an) . n / 2
+Mi padre me ha contado esta historia: En un pequeño pueblo de Alemania 
+(Brunswick), un profesor castigaba a sus alumnos haciéndoles sumar números 
+consecutivos (por ejemplo sumar los 100 primeros números naturales). Era un duro 
+castigo, pues había que hacer muchas sumas (1 + 2 = 3, 3 + 3 = 6, 6 + 4 = 10, 10 
++ 5 = 15,...) y era fácil equivocarse. Pero... una vez, uno de los niños le dio 
+la solución en un tiempo sorprendente, el profesor le preguntó ¿cómo lo has 
+hecho? El niño le dijo: 1 + 100= 101, 2 + 99 = 101, 3 + 98 = 101,... siempre 
+suma 101 y hay 50 sumas, en total 50 * 101 = 5050. El profesor quedó tan 
+impresionado que le regaló un libro de Aritmética.
+Ese niño tenía 10 años y se llamaba Carl Friedrich Gaüs. Fue uno de los más 
+grandes matemáticos.
+Las progresiones aritméticas se suelen representar por : (dos puntos).
+Interpolación aritmética
+Interpolar n términos entre dos números dados, p y q, consiste en la obtención 
+de n términos situados entre p y q, tales que formen una progresión aritmética 
+de extremos p y q.
+Entonces, para interpolar, tenemos que calcular la razón de la progresión 
+aritmética. Como la progresión aritmética resultante tiene n + 2 términos y sus 
+extremos son p y q, la razón será d = (q - p)/(n+1).

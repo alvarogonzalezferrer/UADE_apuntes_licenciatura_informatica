@@ -1,0 +1,32 @@
+Infinitos
+
+Todos nos imaginamos un infinito como algo muy grande, pero no es sólo eso, 
+además debe ser algo que podamos hacer todo lo grande que queramos. Un infinito 
+no es un número
+Definición
+Un infinito es una sucesión que tiende a infinito.
+Por ejemplo, la sucesión 4, 42, 43, ... es un infinito.
+Comparación de infinitos
+Algunas sucesiones se acercan a infinito mas rápidamente que otras.
+Para comparar dos infinitos, se dividen, si el resultado es un numero real (que 
+no sea cero) los infinitos son del mismo orden, si es igual a cero, el infinito 
+del numerador es de orden inferior al del denominador, si es infinito, el 
+infinito del numerador es de orden superior al del denominador.  
+Si el cociente es un número complejo, cambiamos el numerador por el denominador 
+y si el cociente es 0 el infinito que está en el numerador (en el segundo 
+cociente) es de orden inferior al situado en el denominador, si el segundo 
+cociente sigue siendo complejo, los infinitos son incomparables.
+Orden de un infinito
+La sucesión de término general n se llama infinito principal.
+Orden de un infinito es el valor numérico, h,  del exponente al que hay que 
+elevar la sucesión de término general n, para que el cociente entre la sucesión 
+de la que queremos calcular el orden, an, y el resultado de elevar n a la h, sea 
+un número k, distinto de cero y de infinito. 
+lim an / nh = k
+Forma normal de un infinito
+La expresión que hemos utilizado para calcular el orden de un infinito, an / nh 
+= k, se puede escribir de esta forma: 
+an = (k + bn)·nh donde bn es un infinitésimo. A esta expresión se llama forma 
+normal de un infinito.
+La parte k·nh se le llama parte principal.
+

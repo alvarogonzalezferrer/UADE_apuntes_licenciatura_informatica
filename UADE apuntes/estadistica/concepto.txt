@@ -1,0 +1,95 @@
+Estadistica y analisis de informacion:
+Documentacion escrita por Kronoman
+Copyright (c) 2002, Kronoman
+En memoria de mi querido padre
+Documentacion bajo licencia GNU (GPL)
+
+Definiciones:
+
+Poblacion: conjunto de unidades que tienen caracteristicas de identificacion comparables en cada estudio.
+
+Individuo: elementos que componen la poblacion estudiada
+
+Proceso estadistico: su objetivo es observar y comentar los distintos caracteres de una poblacion estadistica, una vez que esta esta bien definida. 
+
+Caracteres pueden ser:
+** "cualitativos" si expresan una cualidad que generalmente no tiene representacion numerica, y se los llama "atributos"
+** "cuantitativos", permiten asignar a cada elemento de la poblacion un numero real y se los llama "variables"
+*** Si la "variable" toma valores numericos aislados, es "discreta"; sino, es "continua"
+
+Frecuencia absoluta (f): numero de veces que esa modalidad aparece en el total de casos posibles presentados.
+Frecuencia absoluta acumulada (fa): suma de las f anteriores en la lista
+ NOTA: la suma total de f debe dar el total de individuos analizados
+
+Frecuencia relativa (fr): cociente entre la frecuencia absoluta de la modalidad, y el numero de individuos de la poblacion.
+Frecuencia relativa acumulada (fra): suma de las fr anteriores en la lista
+ NOTA: la suma total de fr debe dar 1
+
+Frecuencia porcentual (fp): a la frecuencia relativa multiplicada por cien (%).-
+ NOTA: la suma total de fp debe dar 100                                                     
+
+Media aritmetica: promedio de todas las observaciones
+Moda o modo: al valor de mayor frecuencia
+Mediana: valor central que deja por debajo de ella la mitad de los datos, y por encima a la otra mitad, si el numero de datos es impar; si el numero de datos es par, se elige el promedio de los dos datos centrales.
+
+Cuando el numero de observaciones es grande, y la variable continua puede tomar una cantidad elevada de valores, se definen las CLASES DE VALORES o INTERVALOS DE VALORES, que son SUBCONJUNTOS DEL CONJUNTO DE VALORES QUE PUEDE TOMAR LA VARIABLE CONTINUA.
+Para saber las caracteristicas mas convenientes de las clases se usa:
+NOTA: se supone que los elementos estan ordenados de menor a mayor 
+* Rango de la distribucion ( x1 = primer elemento, xn = ultimo elemento)
+  R = xn - x1       (xn - x1 es la medida de dispersion)
+
+* El numero de intervalos
+  k = 1.33 + 3.3 * log n         n = numero de observaciones - log es el [LOG] de la calculadora sin nada raro.
+
+* La amplitud de cada clase
+  c = R / k
+
+NOTA: se debe aproximar por exceso (ej: 7.1 = 8) para cubrir toda la amplitud con el numero de intervalos propuesto.
+NOTA: un valor normal es de aproximadamente 6 o 7 clases
+NOTA: NO DEBE HABER CLASES VACIAS
+NOTA: LAS CLASES FORMADAS AGRUPAN LOS NUMEROS ASI:
+Ejemplo:
+>= 100 && < 120
+>= 120 && < 140
+>= 140 && < 160
+etc
+
+* xm es el punto medio de la clase, ejemplo:
+clase     m      150   153    156
+150-156   3       |-----|-----|
+156-162   3        <-3-> <-3->
+
+Agrupacion de datos:
+DATOS --> sueltos
+      --> agrupados --> por frecuencia
+                    --> por clases o intervalos
+                        --> numero de clases = 'k'
+                        --> amplitud de cada clase 'c'
+
+Graficos:
+
+Graficar clases:
+Las representaciones de la distribucion por clases se acostumbra hacerlas con un HISTOGRAMA, o sea, intervalos de clase en eje x, y frecuencia en y, y levantando un rectangulo con altura igual a la frecuencia de cada intervalo.
+Tambien se usa el poligono de frecuencia que se forma tomando los puntos medios de los intervalos de clase, incluyendo el anterior al primero, y el posterior al ultimo, apoyandose en el histograma.
+El grafico de ojiva es el poligono de frecuencias acumuladas, y NO baja nunca; se hace poniendo los limites de los intervalos en el eje x, y marcando la fa
+
+Tipos de graficos mas comunes:
+
+[ DEBUG: sin terminar! ]
+
+Tabla de tipos de datos y su diagrama sugerido
+
+Tipo de dato        Naturaleza de la variable           Tipo de diagrama
+
+Distribuciones      Cualitativa                         Barras segmentadas
+de frecuencia                                           Barras simples
+                                                        Sectores - pictogramas
+
+                    Cuantitativa discreta               Barras - Sectores
+                                                        Pictogramas
+                    
+                    Cuantitativa continua               Histograma - Poligono frecuencia
+                                                        Grafico de correlacion
+
+Tendencia           Cuantitativa                        Serie de tiempo
+                                                        Curvas semilogaritmicas

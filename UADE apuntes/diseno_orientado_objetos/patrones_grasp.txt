@@ -1,0 +1,26 @@
+Patrones GRASP basicos
+Por Kronoman
+En memoria de mi querido padre
+
+- Bajo Acoplamiento
+
+	Debe haber pocas dependencias entre las clases.
+
+- Alta Cohesión
+
+	Cada elemento de nuestro diseño debe realizar una labor única dentro del sistema, no desempeñada por el resto de los elementos y auto-identificable.
+
+- Experto 
+	La responsabilidad de realizar una labor es de la clase que tiene o puede tener los datos involucrados (atributos).
+	Una clase, contiene toda la información necesaria para realizar la labor que tiene encomendada.
+
+- Creador 
+	Se asigna la responsabilidad de que una clase B cree un Objeto de la clase A solamente cuando
+
+		1. B contiene a A
+		2. B es una agregación (o composición) de  A
+		3. B almacena a A
+		4. B tiene los datos de inicialización de A (datos que requiere su constructor)
+		5. B usa a A.
+- Controlador
+	Asignar la responsabilidad de controlar el flujo de eventos del sistema, a clases específicas.

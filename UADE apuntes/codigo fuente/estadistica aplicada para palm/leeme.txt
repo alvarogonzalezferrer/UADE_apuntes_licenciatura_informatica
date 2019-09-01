@@ -1,0 +1,27 @@
+Estadistica aplicada
+
+Programas para usar con SmallBasic en PalmOS durante el parcial.
+
+Creados desde cero por Kronoman
+
+SmallBasic corre en otras plataformas como Windows, MS-DOS, Linux, 
+deberian poder ejecutarse en esas plataformas tambien.
+
+
+http://smallbasic.sf.net/
+
+Archive:  smallbasic_prgs_compilados_palm.zip
+  Length     Date   Time    Name
+ --------    ----   ----    ----
+     3697  11-02-06 00:19   anova_unifact.pdb
+     2767  11-02-06 00:19   binomial.bas.pdb
+     2327  11-02-06 00:19   bondad_ajuste.pdb
+     3971  11-02-06 00:19   chi_cuad_test_indep.pdb
+      721  11-02-06 00:19   interpolar.bas.pdb
+      701  11-02-06 00:19   limites_fisher_snedecor.bas.pdb
+      574  11-02-06 00:19   mermoz.bas.pdb
+      671  11-02-06 00:19   n_iterativo.bas.pdb
+     2649  11-02-06 00:19   poblaciones_no_independientes.pdb
+     4479  11-02-06 00:19   regresion_correlacion.pdb
+ --------                   -------
+    22557                   10 files

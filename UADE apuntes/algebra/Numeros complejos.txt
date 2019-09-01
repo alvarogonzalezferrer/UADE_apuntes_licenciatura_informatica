@@ -1,0 +1,86 @@
+Números complejos
+
+Los números complejos surgen al resolver ecuaciones algebraicas en las que hay 
+que calcular raíces cuadradas de números negativos.
+Algo parecido les ocurrió a los pitagóricos al intentar medir la diagonal de un 
+cuadrado de lado 1, se dieron cuenta que no había ningún número (sólo conocían 
+los números naturales y fraccionarios) que midiese la diagonal. Esto dio origen 
+a los números reales.
+Los números naturales, enteros, fraccionarios y reales se pueden representar 
+como puntos de una recta (la recta de los números reales). Los números complejos 
+podemos imaginarlos como puntos de un plano (el plano de los números complejos). 
+En ese plano podemos trazar unos ejes perpendiculares que nos sirvan de 
+referencia para localizar los puntos del plano.
+Lo habitual es utilizar las coordenadas del punto (x,y). Cuando representamos un 
+número complejo de esta forma decimos que está en forma cartesiana. Esta 
+interpretación de los números complejos (considerarlos puntos en un plano) se 
+debe a Gauss y a Hamilton.
+También se suele utilizar un vector para localizar el punto. En efecto, un 
+vector con principio en el origen de coordenadas y fin en el punto, identifica 
+el punto de una manera inequívoca. Ahora bien, ese vector lo podemos descomponer 
+en dos vectores: un vector con principio en el origen de coordenadas y fin el 
+valor de la abscisa del punto (x,y), y otro vector con principio el origen de 
+coordenadas y fin la ordenada del punto (x,y). Entonces el punto se 
+representaría como una suma de vectores a + b. Ahora bien, si definimos unos 
+vectores unitarios sobre el eje X y sobre el eje Y, podemos representar el 
+número de esta forma xr + yi. Los vectores r e i tienen módulo 1, además el 
+vector i se define cumpliendo esta condición: i2 = -1. Cómo r tiene módulo 1 y 
+sus potencias también son 1, no se escribe, quedando por lo tanto el número en 
+la forma x + yi. Esta forma de representar un número complejo se llama forma 
+binaria.
+Una última forma de localizar el punto es dando la distancia (que llamaremos r) 
+desde el punto al origen de coordenadas (medido sobre el segmento que une los 
+dos puntos) y el ángulo (que llamaremos a ) que forma el segmento con el eje X. 
+En este caso, se puede representar la posición del punto calculando las 
+coordenadas (x = rcosa , y = rsena ), esta forma se llama forma trigonométrica. 
+También se puede representar la posición del punto por ra esta forma se llama 
+forma polar.
+Hay una última forma de expresar un número complejo, es la forma exponencial. Un 
+número complejo en forma polar se expresa como z = r(cosa + i sena). Si 
+sustituimos el contenido del paréntesis por la igualdad de Euler eia = cosa + i 
+sena, nos queda z = r·eia.
+Es muy fácil pasar de una forma a otra si habéis comprendido la explicación. De 
+todas formas podéis ver los problemas resueltos.
+Complejo conjugado
+Dado un número complejo (x,y) el complejo conjugado sería (x,-y).
+Si al número complejo lo representamos por n, el complejo conjugado se 
+representa por n con una raya encima del número.
+Complejo opuesto
+Dado un número complejo (x,y) el complejo opuesto sería (-x,-y)
+Si al número complejo lo representamos por n, el complejo opuesto se representa 
+por n'.
+Norma
+La norma del número complejo (x,y) es x2 + y2.
+Módulo
+El modulo del número complejo a = x + iy, se representa por |a|, es la raíz 
+cuadrada de x2 + y2.  
+Operaciones con números complejos
+Suma
+Para sumar (o restar) números complejos lo mejor es poner los números en forma 
+cartesiana o binómica.
+Forma cartesiana: (a, b) + (c, d) = (a + c, b + d)
+Forma binómica: (a + bi) + (c + di) = (a + c) + (b + d)i
+Producto
+La forma más fácil es la polar, pero también se pueden utilizar las formas 
+cartesiana y binómica.
+Forma cartesiana: (a, b).(c, d) = (ac - bd, ad +bc)
+Forma binómica: (a + bi) . (c + di) = (ac - bd) + (ad + bc)i
+Forma polar: ra .sb = r.sa +b
+Forma exponencial: z·z' =  r·r'·ei(a + a').
+Cociente
+La forma más fácil es la polar, y es la que se utiliza habitualmente.
+Forma polar: ra / sb = r / sa -b
+Forma exponencial: z/z' =  r/r'·ei(a - a').
+Potencia
+La forma más fácil es la polar, y es la que se utiliza habitualmente.
+Forma polar (ra )n = (rn)na
+Forma exponencial: zn =  rn·ei(na).
+Raíces
+La forma más fácil es la polar, y es la que se utiliza habitualmente.
+La fórmula es la misma que para la potencia sustituyendo n por 1/n.
+Fórmulas de Moivre
+En el cálculo de la potencia de un número complejo se suelen utilizar las 
+fórmulas de Moivre.
+(ra)n =  (rn)na  =  rn(cos na + i sen na )
+(ra)n =  rn(cos a + i sen a )n
+De donde se deduce que (cos na + i sen na ) = (cos a + i sen a )n

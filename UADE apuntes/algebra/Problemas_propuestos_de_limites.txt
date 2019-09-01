@@ -1,0 +1,28 @@
+Problemas propuestos de limites
+
+Problema 1:
+lim (2n + 5)
+Problema 2:
+lim [ 4 * (2 / n - 3) * ( 2 -1/ n+1)]
+Problema 3:
+lim (Ö 3n2 + Ö 2n +n) / ( - Ö 2n2 + 5n + 2)
+Problema 4:
+lim(1+1/5n)-n
+Problema 5:
+lim (1+1/n2)n
+  
+Problemas resueltos de límites
+
+Problema 1:
+lim (3n2 - 1000) = ¥
+En los polinomios el limite es +¥ si el numero que acompaña a la incógnita de 
+mayor exponente es mayor que 0 y -¥ si es menor.
+Problema 2:
+lim 1007 / (1/10n2 - 5n + 6) = 0
+Problema 3:
+lim (-7nÖ n + 5n + 6Ö n - 3) / (11nÖ n - 4Ö n + 10) = ¥ / ¥ , Indeterminación
+Dividimos la expresión en el numerador y el denominador por nÖ n (por lo tanto 
+no cambia la expresión).
+Lim ( -7 + 5 /Ö n + 6 /n - 3 / nÖ n) / (11 - 4 / n + 10 / nÖ n) = -7 / 11
+ 
+  

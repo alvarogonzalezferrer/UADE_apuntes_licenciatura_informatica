@@ -1,0 +1,6 @@
+Progresiones aritmetico geometricas
+
+Una progresión de la forma a1.b1, a2.b2,...,anbn,... en la que los términos ai 
+son términos de una progresión aritmética y los términos bi son términos de una 
+progresión geométrica, se llama progresión aritmético-geométrica.
+ 

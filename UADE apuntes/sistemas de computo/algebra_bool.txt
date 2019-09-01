@@ -1,0 +1,73 @@
+Álgebra de Boole
+Definición 
+Un álgebra de Boole es un conjunto en el que: 
+1- Se han definido dos funciones binarias (que necesitan dos parámetros) que llamaremos aditiva (que representaremos por x + y) y multiplicativa (que representaremos por xy) y una función monaria (de un solo parámetro)  que representaremos por x'. 
+2- Se han definido dos elementos (que designaremos por 0 y 1) y 
+3- Tiene las siguientes propiedades: 
+    a) Conmutativa respecto a la primera función: x + y = y + x
+    b) Conmutativa respecto a la segunda función: xy = yx
+    c) Asociativa respecto a la primera función: (x + y) + z = x +(y+z)
+    d) Asociativa respecto a la segunda función: (xy)z = x(yz)
+    e) Distributiva respecto a la primera función: (x +y)z = xz + yz 
+    f) Distributiva respecto a la segunda función: (xy) + z = (x + z)( y + z)
+    g) Identidad respecto a la primera función: x + 0 = x
+    h) Identidad respecto a la segunda función: x1 = x
+    i) Complemento respecto a la primera función: x + x' = 1
+    j) Complemento respecto a la segunda función: xx' = 0 
+
+Propiedades del álgebra de Boole 
+Idempotente respecto a la primera función: x + x = x
+Idempotente respecto a la segunda función: xx = x
+Maximalidad del 1: x + 1 = 1
+Minimalidad del 0: x0 = 0
+Involución: x'' = x
+Inmersión respecto a la primera función: x + (xy) = x
+Inmersión respecto a la segunda función: x(x + y) = x
+Ley de Morgan respecto a la primera función: (x + y)' = x'y'
+Ley de Morgan respecto a la segunda función: (xy)' = x' + y' 
+Función booleana 
+Una función booleana es una aplicación de A x A x A x ....A en A, siendo A un 
+conjunto cuyos elementos son 0 y 1 y tiene estructura de álgebra de Boole. 
+Supongamos que cuatro amigos deciden ir al cine si lo quiere la mayoría. Cada 
+uno puede votar si o no. Representemos el voto de cada uno por xi. La función 
+devolverá sí (1) cuando el numero de votos afirmativos sea 3 y en caso contrario 
+devolverá 0.
+Si x1 vota 1, x2 vota 0, x3 vota 0 y x4 vota 1 la función booleana devolverá 0.
+Producto mínimo (es el número posible de casos) es un producto en el que 
+aparecen todas las variables o sus negaciones. 
+El número posible de casos es 2n.  
+Siguiendo con el ejemplo anterior. Asignamos las letras A, B, C y D a los 
+amigos. Los posibles casos son:
+Votos         Resultado
+ABCD
+1111              1
+1110              1
+1101              1
+1100              0
+1011              1
+1010              0
+1001              0
+1000              0
+0111              1
+0110              0
+0101              0
+0100              0
+0011              0
+0010              0
+0001              0
+0000              0 
+Las funciones booleanas se pueden representar como la suma de productos mínimos 
+(minterms) iguales a 1. 
+En nuestro ejemplo la función booleana será: 
+f(A,B,C,D) = ABCD + ABCD' + ABC'D + AB'CD + A'BCD 
+
+Diagramas de Karnaugh 
+Los diagramas de Karnaugh se utilizan para simplificar las funciones booleanas. 
+Se construye una tabla con las variables y sus valores posibles y se agrupan los 
+1 adyacentes, siempre que el número de 1 sea potencia de 2.  
+
+En esta página tienes un programa para minimización de funciones booleanas 
+mediante mapas de Karnaugh http://es.software.yahoo.com/fot/ftxt/karmap.html 
+
+
+Aru

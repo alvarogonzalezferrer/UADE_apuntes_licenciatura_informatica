@@ -1,0 +1,74 @@
+Series
+ 
+Una serie es la suma de los términos de una sucesión:
+a1 + a2 + a3 + ... + ai + ... + an + ...
+Podría parecer que tratándose de una suma de infinitos términos la suma siempre 
+irá aumentando, sin límite,  a medida que sumamos más y más términos, pero esto 
+no es así. Algunas series tienen un límite que no superan por más y más términos 
+que sumemos. Se dice que la serie converge a ese número y entonces la serie es 
+convergente.
+Una serie puede tener términos positivos y negativos. En ese caso se dice que la 
+serie es absolutamente convergente si la serie formada por los valores absolutos 
+de sus términos es convergente.
+Cuando la suma de los términos tiende a infinito, la serie es divergente. 
+Series aritméticas
+Ver progresiones aritméticas
+La forma general de estas series es: a + (a + d) + (a + 2d) + ... + (a + (n - 
+1)d)
+El término d se llama diferencia.
+La suma de estas series se pueden calcular sumando el primer término y el último 
+y multiplicando el resultado por la mitad del número de términos de la serie.
+1 + 2 + 3 + ... + n = (1 + n)·n / 2
+1 + 3 + 5 + ... + (2n - 1) = (1 + (2n - 1))·n / 2 = n2
+Series geométricas
+Ver progresiones geométricas
+La forma general de estas series es: a + ar + ar2 + ... + arn - 1
+El término r se llama razón.
+La suma de estas series se puede calcular multiplicando el último término por la 
+razón, restándole el primero y dividiendo el resultado por la razón menos uno. S 
+= a(1 - rn) / (1 - r)
+Si la razón es un numero comprendido entre -1 y 1, y el número de términos es 
+muy grande, como en la fórmula de la suma, la razón está elevado a n, el 
+resultado de la operación rn es un número que tiende a cero y la fórmula de la 
+suma quedaría S = a / (1- r). 
+Series aritmético-geométricas
+La forma general de estas series es: a + (a + d)r + (a + 2d)r2 + ... + (a + (n - 
+1)d)rn - 1
+Series-p
+La forma general de estas series es 1 + 1/2p + 1/3p + ... + 1/kp + ...
+Estas series fueron estudiadas por Jakob Bernoulli. Para p = 2 el problema se le 
+resistió y también a Leibniz, hasta que Euler lo resolvió. El valor de esta 
+serie para p = 2 es p2/6.
+Serie armónica
+Es un caso particular de las series-p. Cuando p = 1 la serie se llama armónica.
+Esta serie es muy curiosa. Aunque su término general tiende a cero, la serie 
+diverge (no tiene un límite fijo).
+Series telescópicas
+La forma general de estas series es (a1 - a2) + (a2 - a3) + (a3 -a4) + ...
+La suma de esta serie es S = a1 - an+1 
+Desarrollo en series de funciones
+Todos nos hemos preguntado cómo 'saben' las calculadoras el seno de un número. 
+En general, cómo hacen el cálculo de las funciones. Aquí está la respuesta: Las 
+funciones se pueden aproximar mediante series.
+Suma de series
+Dadas dos series a y b la serie suma de las dos se obtiene sumando los términos 
+correspondientes. 
+Sea s la serie suma de las series a y b, sus términos serían: a1 + b1, a2 + b2, 
+... 
+Si la serie a converge al número A y la serie b, converge al número B, la serie 
+suma s, converge al número A + B. 
+Sustracción de series
+Dadas dos series a y b la serie diferencia de las dos se obtiene restando los 
+términos correspondientes. 
+Sea d la serie substracción de las series a y b, sus términos serían: a1 - b1, 
+a2 - b2, ... 
+Si la serie a converge al número A y la serie b, converge al número B, la serie 
+diferencia d, converge al número A - B. 
+Multiplicación de series
+Dadas dos series a y b la serie producto de las dos se obtiene de la siguiente 
+manera: 
+Sea p la serie producto, sus términos serán: a1b1 + (a1b2 + a1b1) + (a1b3 + a2b2 
++ a3b1) + ... 
+Si la serie a converge al número A y la serie b, converge al número B, la serie 
+producto puede no ser convergente. Si una de las dos series es absolutamente 
+convergente, la serie producto converge a AB. 

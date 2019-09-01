@@ -1,0 +1,141 @@
+//-----------------------------------------------------
+// EJEMPLO DE ITERATOR, PARTE DE CODIGO DE EJEMPLO
+// Por Krono
+//-----------------------------------------------------
+
+public class Sistema
+{
+	private Catalogo catalogo;
+	// constructor
+	// -- 
+	// --
+	// --
+
+	// A.B.M
+	public Producto buscarProducto(int codigo)
+	{
+		return catalogo.buscar(codigo);
+	}
+	// - - - 
+	// - - - 
+
+	// recorrido
+	public Producto primeroPorVentas()
+	{
+		// un unico recorrido por vector
+		catalogo.setRecorrido(RecorridoPorPrecio.getInstancia());
+		return catalogo.Primero();
+	}
+
+	public Producto siguientePorVentas()
+	...
+
+	public Producto ultimoPorVentas()
+	...
+
+	etc
+}
+
+//-----------------------------------------------------
+//-----------------------------------------------------
+//-----------------------------------------------------
+
+public class Catalogo
+{
+	private Vector productos;
+	private Recorrido recorrido;
+
+	public	Catalogo()
+	{
+		productos = new Vector()
+	}
+
+	public void setRecorrido(Recorrido r)
+	{
+		recorrido = r;
+	}
+
+	public Recorrido getRecorrido()
+	{
+		return recorrido;
+	}	
+
+	public void agregar(int c , String d, float p , float s)
+	{
+		Producto p = new Producto(c,d,p,s);
+		productos.add(p);
+	}
+
+	public Producto primero()
+	{
+		return recorrido.primero();
+	}
+
+	public Producto siguiente()
+	{
+		return recorrido.siguiente();
+	}
+
+}
+
+
+//-----------------------------------------------------
+//-----------------------------------------------------
+//-----------------------------------------------------
+
+public abstract class Recorrido
+{
+	private Catalogo catalogo;
+	private int posicion;
+
+	public Recorrido(Catalogo cp)
+	{
+		catalogo = cp;
+	}
+
+	public abstract Producto primero();
+	public abstract Producto siguiente();
+	public abstract Producto anterior();
+	public abstract Producto ultimo();
+}
+
+//-----------------------------------------------------
+//-----------------------------------------------------
+//-----------------------------------------------------
+
+// Main
+
+public class SistemaMain()
+{
+
+	public abstract int main(string [] args)
+	{
+		SistemaMain sis = new SistemaMain();
+		sis.menu();
+	}
+
+	public void menu()
+	{
+
+		// - - - - 
+		case 
+			op = 1
+				PrimeroPorVentas();
+		// - - - - 
+		// - - - - 
+
+	}
+
+
+	public void PrimeroPorVentas()
+	{
+		Producto p;
+		p = Sistema.getInstancia().PrimeroPorVentas();
+		System.out.println("Codigo: " + p.getCodigo()):
+		System.out.println("Descripcion: " + p.getDescripcion()):
+		System.out.println("Precio: " + p.getPrecio()):
+		System.out.println("Stock: " + p.getStock()):
+	}
+
+}
+		

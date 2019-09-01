@@ -1,0 +1,53 @@
+Limites de sucesiones
+
+Las sucesiones matemáticas, pueden ser convergentes (tienden a un número, pero 
+nunca lo alcanzan) o divergentes (tienden a ¥ o a -¥ ).
+Se dice que un número L es el límite de una sucesión, de término general an, si 
+la diferencia en valor absoluto entre an y L es menor que un número cualquiera, 
+e , previamente elegido. Expresado matemáticamente ½ an - L½ < e. Esta 
+definición es de Cauchy.
+El límite de una sucesión cuyo término general es nk es ¥ .
+El límite de una sucesión cuyo término general es 1/nk es 0
+El límite de una sucesión cuyo término general es kn es 0, donde 0 < k <1
+El límite de una sucesión cuyo término general es kn es ¥ , donde k > 1
+El límite de una sucesión cuyo término general es un polinomio es divergente. Su 
+limite es + ¥ , cuando el coeficiente del termino de mayor grado es positivo, y 
+-¥ , cuando es negativo.
+El límite de una suma o diferencia de sucesiones es la suma o diferencia da cada 
+una de ellas
+El límite de un producto o cociente de sucesiones es el producto o cociente de 
+los límites de cada una de ellas.
+El límite de la sucesión potencia de dos sucesiones es igual al límite de la 
+sucesión base, elevado al límite de la sucesión exponente.
+El límite de la sucesión potencia de una sucesión es igual al límite de la 
+sucesión elevado al exponente de la potencia.
+A veces, al calcular el límite de una sucesión nos sale una indeterminación.
+Las indeterminaciones son:
+¥ - ¥
+¥ / ¥
+0 / 0
+0 * ¥  
+00
+¥ 0
+1¥
+Es evidente que el símbolo ¥ representa un 'número' muy grande pero ya no es tan 
+evidente que los números cero y uno que aparecen en estas expresiones no son 
+exactamente estos números si no números infinitamente próximos a ellos. Por eso, 
+un número infinitamente próximo a 1 elevado a un número infinitamente grande es 
+una indeterminación.
+Cuando el resultado de una expresión es una indeterminación tenemos que 
+ingeniárnoslas (haciendo operaciones que no alteren la expresión) para deshacer 
+la indeterminación.
+Si la indeterminación es del tipo ¥ /¥ se resuelve dividiendo numerador y 
+denominador por la incógnita elevada a mayor grado.
+Ejemplo: lim (4n2 + 5) / (5n3-3) = 0 
+Si es del tipo ¥ - ¥ se resuelve con (a+b)(a-b).
+Ejemplo: lim Ö (n2 + 5) - Ö (n2 - 8) = lim (n2 + 5 - n2 - 8)/ Ö (n2 + 5) + Ö (n2 
+- 8) = 0 / 1 = 0 
+Si es 1¥ se resuelve con el numero e = (1+1/a)a.
+Ejemplo: lim (1 + 1 / n2)n = lim [(1 + 1/n2)n^2]1/n =e0 = 1  
+Trucos para resolver límites
+lim (n tiende a infinito) (a1 + a2 + ...+ an)/n = lim an
+lim (n tiende a infinito) (a1 + a2 + ...+ an)1/n = lim an
+lim (n tiende a infinito) (an)1/n = lim an / an-1  
+lim (n tiende a infinito) an / bn= lim (an  - an-1)/ (bn - bn-1) 

@@ -1,0 +1,46 @@
+=====================================================================
+Apuntecito por Kronoman, en memoria de mi querido padre.
+=====================================================================
+
+Entidad: 
+	Fuerte : rectangulo
+	Debil : rectangulo linea doble
+
+Propiedades:
+	Simple: elipse
+	Compuesta: elipses
+	Clave: elipse subrayado
+
+	Monovaluada: unico valor para cada instancia, elipse (idem simple)
+	Multivaluada: conjunto de valores, elipse linea doble, dan lugar a una nueva relacion (p'q' significa que contiene varias tuplas c/u)
+	
+Base: idem simple
+Derivada: se obtiene mediante operacion entre otras propiedades (ej: salario=canthoras*valorhora) ; elipse punteado
+
+Vinculos
+	Relacion entre 2 entidades, 1:1, M:M, 1:M, M:1
+
+	Vinculo fuerte (vincula ent fuertes), rombo simple
+	Vinculo ent debiles, rombo doble linea
+	
+Participacion: 
+	total: vinculo doble linea, debe existir al menos 1 ejemplar en c/u de las entidades
+	parcial: no es obligatorio que exista 1 ejemplar en c/u de las entidades, linea simple
+
+Subtipos: rectangulo padre, rectangulos hijos, unidos con flechas (Apuntando hacia el hijo), idem herencia OOP
+	
+
+-----------
+Pasos para pasar de un diagrama ent-relacion a modelo de datos
+
+identificar y extraer:
+	entidades fuertes son relaciones
+	vinculos M:M:... son relaciones
+	vinculos 1:M, 1:1, M:1 entre ent fuertes son restricciones de integridad (claves foranes del lado del muchos, en 1:1 de cualquier lado)
+	entidades debiles son relaciones : agregan identidad, tiene clave compuesta, tiene clave foranea
+
+vinculos 1:M o M1 con entidades debiles
+
+subtipos -> relacion (restriccion integridad) -> 1:1 -> agregar identidad supertipo -> clave
+
+controlar comportamiento de todas las claves que se generaron

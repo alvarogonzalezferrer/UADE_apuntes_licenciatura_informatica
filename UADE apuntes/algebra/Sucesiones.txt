@@ -1,0 +1,56 @@
+Sucesiones
+
+Una sucesión es una lista de números que siguen una regla.
+a1, a2, a3,... ai,... an,...
+Por ejemplo 1, 3, 5, 7, 9, ...
+Frecuentemente se define una sucesión dándonos unos pocos términos consecutivos 
+de la sucesión, como en el ejemplo anterior. Otras veces se define la sucesión 
+mediante una función que define el término general.
+Por ejemplo, 2n - 1, define la sucesión 1, 3, 5, 7, 9,...
+Cuando nos dan el término general es muy sencillo obtener un término 
+determinado, pero lo contrario, dados unos pocos términos, obtener el término 
+general, puede ser bastante difícil.
+También se puede definir una sucesión mediante una ley de recurrencia, en la 
+que, para definir un término, se utilizan los anteriores.
+Por ejemplo, a1 = 1, an= an-1 + 2.
+Las sucesiones más famosas son las progresiones aritméticas, las progresiones 
+geométricas y la sucesión de Fibonacci.
+Las sucesiones pueden ser infinitas (cuando tienen un número infinito de 
+términos) o finitas.
+Algunas sucesiones se aproximan cada vez más a un cierto número, estas 
+sucesiones se llaman convergentes.
+Se dice que un número L es el límite de una sucesión, de término general an, si 
+la diferencia en valor absoluto entre an y L es menor que un número cualquiera, 
+e , previamente elegido. Expresado matemáticamente ½ an - L½ < e .
+Por ejemplo, la sucesión (1 + 1/n)n cuando n tiende a infinito es el número e.
+Las sucesiones cuyo límite es más infinito o menos infinito se llaman 
+divergentes.
+Las sucesiones cuyo límite es cero se llaman infinitésimos.
+Una sucesión es estrictamente creciente si cada término de la sucesión es mayor 
+que el anterior
+Una sucesión es creciente si cada término es igual o mayor al anterior
+Similares definiciones se utilizan para sucesiones estrictamente decrecientes y 
+decrecientes.
+Una sucesión es monótona si es creciente o decreciente.
+Una sucesión es estrictamente monótona si es estrictamente creciente o 
+estrictamente decreciente.
+Una sucesión se dice acotada superiormente por un número A, si A >= an.
+Una sucesión se dice acotada inferiormente A, si A <= an.
+Una sucesión se dice acotada si está acotada superior e inferiormente.
+Una sucesión se dice oscilante o indeterminada cuando no tiene un límite 
+definido.
+Por ejemplo, la sucesión de término general an = (-1)n está acotada 
+superiormente, 1, e inferiormente, -1, pero no tiende a ninguno de los dos 
+valores. 
+Resumiendo, las sucesiones pueden estar acotadas o no. Las sucesiones acotadas, 
+pueden converger (convergentes) o no (oscilantes). Las sucesiones no acotadas 
+pueden ser divergentes (limite infinito o -infinito) o no (oscilantes).
+Las sucesiones convergentes pueden tener límite conocido o no. Las que tienen 
+límite conocido, pueden ser estrictamente crecientes o estrictamente 
+decrecientes. En las estrictamente crecientes, la cota superior es el límite y 
+la cota inferior el primer término. En las estrictamente decrecientes, la cota 
+inferior es el límite y al cota superior es el primer término.
+
+
+Esta dirección es muy interesante: 
+http://www.research.att.com/~njas/sequences/index.html

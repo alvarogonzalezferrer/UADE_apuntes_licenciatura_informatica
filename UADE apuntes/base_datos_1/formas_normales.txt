@@ -1,0 +1,24 @@
+1FN
+Una relación R se encuentra en 1FN si y solo sí por cada renglón columna contiene valores atómicos.
+
+2FN
+Una relación R está en 2FN si y solo si está en 1FN y los atributos no primos dependen funcionalmente de la clave primaria.
+
+3FN
+Una relación R está en 3FN si y solo si esta en 2FN y todos sus atributos no primos dependen no transitivamente de la clave primaria.
+Dependencia transitiva: cuando existe más de una forma de llegar a referencias a un atributo de una relación.
+
+BCNF
+Una relación R esta en FNBC si y solo si cada determinante es una clave candidata.
+Una tabla se considera en esta forma si y sólo sí cada determinante o atributo es una clave candidato.
+
+4FN 
+Una tabla está en Cuarta Forma Normal o 4FN si está en FNBC y las únicas dependencias funcionales multivaloradas que existen son las dependencias funcionales de la clave con los atributos que no forman parte de la misma. Estas dependencias multievaluadas de la clave con los atributos que no forman parte de la misma son dependencias triviales, por lo que algunos autores dicen que no existen dependencias multievaluadas en 4FN.
+
+5FN 
+Si y solo si se encuentra en la 4FN y las unicas dependencias de reunion que existen son dependencias funcionales.
+
+Un esquema de relaciones R está en 5FN con respecto a un conjunto D de dependencias funcionales, de valores múltiples y de producto, si para todas las dependencias de productos en D se cumple por lo menos una de estas condiciones:
+
+* (R1, R2, R3, ... Rn) es una dependencia de producto trivial.
+* Toda Ri es una superllave de R.

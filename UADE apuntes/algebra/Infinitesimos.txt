@@ -1,0 +1,38 @@
+Infinitésimos
+Todos nos imaginamos un infinitésimo como algo muy pequeño, pero no es sólo eso, 
+además debe ser algo que podamos hacer todo lo pequeño que queramos. Un 
+infinitésimo no es un número
+Definición
+Un infinitésimo es una sucesión que tiende a cero.
+Por ejemplo, la sucesión 1/4, 1/42, 1/43, ... es un infinitésimo.
+Comparación de infinitésimos
+Algunas sucesiones se acercan a cero mas rápidamente que otras.
+Para comparar dos infinitésimos, se dividen, si el resultado es un numero real 
+(que no sea cero) los infinitésimos son del mismo orden, si es igual a cero, el 
+infinitésimo del numerador es de orden superior al del denominador, si es 
+infinito, el infinitésimo del numerador es de orden inferior al del denominador. 
+
+Si el cociente es un número complejo, cambiamos el numerador por el denominador 
+y si el cociente es 0 el infinitésimo que esta en le numerador (en el segundo 
+cociente) es de orden superior al situado en el denominador, si el segundo 
+cociente sigue siendo complejo, los infinitésimos son incomparables.
+Orden de un infinitésimo
+La sucesión de término general 1/n se llama infinitésimo principal.
+Orden de un infinitésimo es el valor numérico, h,  del exponente al que hay que 
+elevar la sucesión de término general 1/n, para que el cociente entre la 
+sucesión de la que queremos calcular el orden, an, y el resultado de elevar 1/n 
+a la h, sea un número k, distinto de cero y de infinito. 
+lim an / (1/n)h = k
+Sea el infinitésimo 1 - cos2 1/n
+El límite (1 - cos2 1/n) / (1/n)h = lim (sen2 1/n) / (1/n)h 
+Pero, para valores pequeños del ángulo el seno es igual al ángulo, entonces 
+podemos poner lim (sen2 1/n) / (1/n)h = lim (1/n)2 / (1/n)h = lim nh/n2  
+Este límite es 1 para h = 2, luego el orden del infinitésimo es 2.
+A veces, en lugar de utilizar la sucesión 1/n, como unidad de comparación, se 
+utiliza otra sucesión.
+Forma normal de un infinitésimo
+La expresión que hemos utilizado para calcular el orden de un infinitésimo, an / 
+(1/n)h = k, se puede escribir de esta forma: 
+an = (k + bn) / nh donde bn es otro infinitésimo. A esta expresión se llama 
+forma normal respecto al infinitésimo 1/n
+La forma normal del infinitésimo 1 - cos2 1/n es (1 +bn)/n2 
