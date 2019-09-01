@@ -1,4 +1,4 @@
-# UADE_apuntes_licenciatura_informatica
+# UADE apuntes de licenciatura en informatica
 
 Todos mis apuntes durante mi carrera universitaria, Licenciatura en Informática, UADE, Argentina.
 
@@ -10,3 +10,6 @@ PUEDE SER INEXACTO, O INCORRECTO.
 Buena suerte en sus estudios!
 
 Álvaro 
+
+https://ar.linkedin.com/in/alvarogonzalezf 
+
