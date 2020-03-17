@@ -16,5 +16,7 @@ Buena suerte en sus estudios!
 
 Álvaro 
 
+http://alvarogonzalezferrer.github.io/
+
 https://ar.linkedin.com/in/alvarogonzalezf 
 
